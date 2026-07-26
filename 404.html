@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<script>
+  var l = location;
+  var repoSegment = "";
+  if (l.hostname.endsWith("github.io")) {
+    var first = l.pathname.split("/").filter(Boolean)[0];
+    if (first) repoSegment = "/" + first;
+  }
+  var path = l.pathname + l.search + l.hash;
+  l.replace(l.origin + repoSegment + "/?p=" + encodeURIComponent(path));
+</script>
+</head>
+<body></body>
+</html>
