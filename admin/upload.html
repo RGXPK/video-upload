@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>لوحة رفع الفيديو</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<div class="wrap">
+  <div class="filmstrip">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <header class="top">
+    <div class="eyebrow">لوحة التحكم</div>
+    <h1>رفع فيديو جديد</h1>
+  </header>
+
+  <div id="loginView" class="card">
+    <form id="loginForm">
+      <div class="field">
+        <label>البريد الإلكتروني</label>
+        <input type="text" name="email" required autocomplete="username" />
+      </div>
+      <div class="field">
+        <label>كلمة المرور</label>
+        <input type="text" name="password" required autocomplete="current-password" style="font-family:inherit;" />
+      </div>
+      <p id="loginError" style="color:#ff5a36; font-size:13px;"></p>
+      <button class="btn" type="submit">دخول</button>
+    </form>
+  </div>
+
+  <div id="appView" style="display:none;">
+    <div class="card">
+      <div class="row" style="justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <span class="progress-label">مرحباً أيها الأدمن</span>
+        <button id="logoutBtn" class="btn ghost" type="button">تسجيل الخروج</button>
+      </div>
+
+      <div class="field">
+        <label>عنوان الفيديو (اختياري)</label>
+        <input type="text" id="titleInput" placeholder="مثال: حلقة 1 - الموسم الثاني" />
+      </div>
+
+      <div id="dropzone" class="dropzone">
+        📼 اضغط هنا أو اسحب الفيديو
+        <div id="pickedName" class="picked"></div>
+      </div>
+      <input type="file" id="fileInput" accept="video/*" style="display:none;" />
+
+      <div id="progressShell" class="progress-shell" style="display:none;">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <div id="progressLabel" class="progress-label"></div>
+
+      <div class="row" style="margin-top:16px;">
+        <button id="uploadBtn" class="btn" disabled>Upload</button>
+      </div>
+
+      <div id="result" class="result">
+        <label style="font-size:13px; color:var(--text-dim); display:block; margin-bottom:6px;">رابط الفيديو</label>
+        <div id="linkBox" class="link-box"></div>
+        <div class="row">
+          <button id="copyBtn" class="btn ghost" type="button">📋 نسخ الرابط</button>
+          <a id="openBtn" class="btn ghost" target="_blank" rel="noopener">↗ فتح الرابط</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Bebas Neue',sans-serif; font-size:20px; margin:28px 0 0; color:var(--text-dim);">الفيديوهات المرفوعة</h2>
+    <div id="videosList" class="videos-list"></div>
+  </div>
+
+  <footer class="note">القناة خاصة — لا تشارك رابط هذه الصفحة مع أحد.</footer>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script type="module" src="upload.js"></script>
+</body>
+  </html>
